@@ -7,48 +7,6 @@ const region = document.getElementById("region");
 const hostname = document.getElementById("hostName");
 const gMap = document.getElementById("googleMap");
 
-
-// $.getJSON("https://api.ipify.org?format=json", function(data) {
-//     ipadd = data.ip;
-//     UserIp.innerHTML = ipadd;
-// });
-
-
-// $.getJSON(`https://ipinfo.io/${ipadd}/geo`, function(ipInfoData) {
-//     // Display Google Map using latitude and longitude
-//     const location = ipInfoData.loc.split(",");
-//     const latitude = location[0];
-//     const longitude = location[1];
-//     mapIframe = `<iframe src="https://maps.google.com/maps?q=${latitude},${longitude}&z=15&output=embed" width="360" height="270" frameborder="0" style="border: 0"></iframe>`;
-//     livemap.innerHTML = mapIframe;
-// });
-
-
-
-
-    // $.getJSON("https://api.ipify.org?format=json", function(data) {
-    //     ipadd = data.ip;
-    //     UserIp.innerHTML = ipadd;
-    //     console.log(ipadd);
-
-    //     // Fetch additional information
-    //     $.getJSON(`https://ipinfo.io/q=${ipadd}/geo`, function(ipInfoData) {
-    //         // ...
-        
-    //         // Display Google Map using latitude and longitude
-    //         const location = ipInfoData.loc.split(",");
-    //         lat= location[0];
-    //         longi = location[1];
-    //         const mapIframe = `<iframe src="https://maps.google.com/maps?q=${lat},${longi}&z=15&output=embed" width="360" height="270" frameborder="0" style="border: 0" allowfullscreen></iframe>`;
-    //         gMap.innerHTML = attr("src", `https://maps.google.com/maps?q=${lat},${longi}&z=15&output=embed`);
-    //     });
-        
-    // });
-
-    // ... Rest of your code ...
-
-
-
 // "ip": "157.33.206.169",
 // "city": "Nagpur",
 // "region": "Maharashtra",
@@ -85,6 +43,11 @@ try{
           longi.innerHTML = longitude;
           console.log('latitude', latitude );
 
+          city.innerHTML = ipInfoData.city;
+          organisation.innerHTML = ipInfoData.org;
+          region.innerHTML = ipInfoData.region;
+          hostname.innerHTML = ipInfoData.domain;
+
           const mapIframe = document.createElement("iframe");
           mapIframe.src = `https://maps.google.com/maps?q=${latitude},${longitude}&z=15&output=embed`;
           mapIframe.width = "360";
@@ -97,6 +60,37 @@ try{
           mapContainer.innerHTML = ""; // Clear any existing content
           mapContainer.appendChild(mapIframe);
         // ... Rest of your code ...
+
+const tiZo = document.getElementById("timeZone");
+const daAndTi = document.getElementById("dateAndTime");
+const pincod = document.getElementById("pincode");
+const pinfound = document.getElementById("pinfound");
+
+
+// Get time from timezone
+const timeZone = ipInfoData.timezone;
+const dateAndTime = new Date().toLocaleString("en-US", { timeZone });
+tiZo.innerHTML= timeZone;
+daAndTi.innerHTML = dateAndTime ;
+
+
+
+
+    // Get pincode from JSON and make API request to fetch post office details
+    pincode = ipInfoData.postal;
+    pincod.innerHTML = pincode;
+    $.getJSON(`https://api.postalpincode.in/pincode/${pincode}`, function(postalData) {
+        const postOffices = postalData[0].PostOffice;
+        pinfound.innerHTML =  postOffices.length;
+
+        const postOfficesList = $("#nearbypost");
+        postOfficesList.empty();
+
+        postOffices.forEach((office, index) => {
+            const listItem = `<li>${index + 1}. ${office.Name} - ${office.BranchType}</li>`;
+            postOfficesList.append(listItem);
+        });
+    });
 
     }
     catch (error) {
@@ -113,39 +107,11 @@ try{
 
 
 // /* // Get IP Address on page load
-//     $.getJSON("https://api.ipify.org?format=json", function(data) {
-//        const ipadd = data.ip;
-//         UserIp.innerHTML = ipadd;
+//     
 
-//         // Fetch additional information
-//         $.getJSON(`https://ipinfo.io/${ipadd}/geo`, function(ipInfoData) {
-//             // Display Google Map using latitude and longitude
-//             const location = ipInfoData.loc.split(",");
-//             const latitude = location[0];
-//             const longitude = location[1];
-//             const mapIframe = `<iframe src="https://maps.google.com/maps?q=${latitude},${longitude}&z=15&output=embed" width="360" height="270" frameborder="0" style="border: 0"></iframe>`;
-//             $("#map").html(mapIframe);
+            
 
-//             // Get time from timezone
-//             const timeZone = ipInfoData.timezone;
-//             const dateAndTime = new Date().toLocaleString("en-US", { timeZone });
-//             $("#timeZone").text(`Time Zone: ${timeZone}`);
-//             $("#dateAndTime").text(`Date and Time: ${dateAndTime}`);
-
-//             // Get pincode from JSON and make API request to fetch post office details
-//             const pincode = ipInfoData.postal;
-//             $("#pincode").text(`Pincode: ${pincode}`);
-//             $.getJSON(`https://api.postalpincode.in/pincode/${pincode}`, function(postalData) {
-//                 const postOffices = postalData[0].PostOffice;
-//                 $("#messege").text(`Number of pincode(s) found: ${postOffices.length}`);
-
-//                 const postOfficesList = $("#postOffices");
-//                 postOfficesList.empty();
-
-//                 postOffices.forEach((office, index) => {
-//                     const listItem = `<li>${index + 1}. ${office.Name} - ${office.BranchType}</li>`;
-//                     postOfficesList.append(listItem);
-//                 });
+        
 
 //                 // Implement search functionality
 //                 $("#searchPost").keyup(function() {
