@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Mulish:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:Inter;
+    background-color: #000000;
+    color: #fff;
+}
+
+body{
+    display: flex;
+  
+    align-items:center ;
+}
+
+.section-one{
+    background-color: transparent;
+    width: 50vw;
+    height: 45vw;
+   
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.texts{
+    margin-top: 0;
+}
+
+.section-one h1{
+    color: #575a85;
+}
+
+.section-one p{
+    margin-top: 20px;
+    font-size: large;
+}
+
+.section-one img{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 15%;
+}
+
+
+.section-two{
+    background-color: #575a85;
+    width: 50vw;
+    height: 49vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section-two p{
+    background-color: transparent;
+    font-size: x-large;
+    font-weight: 600;
+
+}
+
+button{
+    background-color: transparent;
+    outline: 0.1rem solid #acb0c3;
+    border: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top:20px ;
+    text-align: center;
+    width: 11rem;
+    height: 2rem;
+    border-radius: 3px;
+    color: #acb0c3;
+}
+    
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <title>Post Office App</title>
+  </head>
+  <body>
+    <div class="location-details">
+      <div class="ipAddress">
+        <p>IP Address: </p>
+        <p id="ipAddress"></p>
+      </div>
+      <div class="long-lat" id="longlat">
+        <div class="lati">
+          <p>Lat: <span id="latitude"></span></p>
+
+          <p> City: <span id="city"></span></p>
+
+          <p>Organisation: <span id="organisation"></span></p>
+        </div>
+
+        <div class="logi">
+          <p>Long: <span id="longitude"></span></p>
+
+          <p>Region: <span id="region"></span></p>
+
+          <p>Host Name: <span id="hostName"></span></p>
+        </div>
+      </div>
+    </div>
+    <div class="maps" >
+      <h1>Your Current Location</h1>
+      <div class="gmap" id="map">
+       
+      </div>
+    </div>
+    <div class="user-info" id="more-about-you">
+      <h1>More Information About You</h1>
+
+      <p><span id="timeZone">Time Zone:</span></p>
+
+      <p><span id="dateAndTime">Date and Time:</span></p>
+
+      <p><span id="pincode">Pincode: </span></p>
+
+      <p><span id="messege">Number of pincode(s) found:</span></p>
+    </div>
+    <div class="post-offices" id="nearby-post">
+      <div>
+        <h1>Post Offices Near You</h1>
+
+        <div class="searchbar" id="input-field">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="search"
+            name="search"
+            id="searchPost"
+            placeholder="Search By Name"
+          />
+        </div>
+      </div>
+
+      <div class="cardSection">
+        <div class="card1">
+          <p><span id="name">Name:</span></p>
+
+          <p><span id="branchType">Branch Type:</span></p>
+
+          <p><span id="deliveryStatus">Delivery Status: </span></p>
+
+          <p><span id="district"> District:</span></p>
+
+          <p><span id="division"> Division:</span></p>
+        </div>
+
+        <div class="card2">
+          <p><span id="name">Name:</span></p>
+
+          <p><span id="branchType">Branch Type:</span></p>
+
+          <p><span id="deliveryStatus">Delivery Status: </span></p>
+
+          <p><span id="district"> District:</span></p>
+
+          <p><span id="division"> Division:</span></p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+      integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+  </body>
+</html>
