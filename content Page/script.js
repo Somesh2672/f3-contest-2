@@ -64,7 +64,7 @@ try{
 const tiZo = document.getElementById("timeZone");
 const daAndTi = document.getElementById("dateAndTime");
 const pincod = document.getElementById("pincode");
-const pinfound = document.getElementById("pinfound");
+const pinf = document.getElementById("pinfound");
 
 
 // Get time from timezone
@@ -81,7 +81,7 @@ daAndTi.innerHTML = dateAndTime ;
     pincod.innerHTML = pincode;
     $.getJSON(`https://api.postalpincode.in/pincode/${pincode}`, function(postalData) {
         const postOffices = postalData[0].PostOffice;
-        pinfound.innerHTML =  postOffices.length;
+        pinf.innerHTML =  postOffices.length;
 
         const postOfficesList = $("#nearbypost");
         postOfficesList.empty();
@@ -89,45 +89,25 @@ daAndTi.innerHTML = dateAndTime ;
         postOffices.forEach((office, index) => {
             const listItem = `<li>${index + 1}. ${office.Name} - ${office.BranchType}</li>`;
             postOfficesList.append(listItem);
+        
+
+       // Implement search functionality
+       $("#searchPost").keyup(function() {
+        const searchTerm = $(this).val().toLowerCase();
+        const filteredOffices = postOffices.filter(office => office.Name.toLowerCase().includes(searchTerm) || office.BranchType.toLowerCase().includes(searchTerm));
+        postOfficesList.empty();
+
+        filteredOffices.forEach((office, index) => {
+            const listItem = `<li>${index + 1}. ${office.Name} - ${office.BranchType}</li>`;
+            postOfficesList.append(listItem);
+        });
+        });
         });
     });
-
-    }
+}  
+    
     catch (error) {
         console.error(error);
     }
 });
 
-
-
-
-
-
-
-
-
-// /* // Get IP Address on page load
-//     
-
-            
-
-        
-
-//                 // Implement search functionality
-//                 $("#searchPost").keyup(function() {
-//                     const searchTerm = $(this).val().toLowerCase();
-//                     const filteredOffices = postOffices.filter(office => office.Name.toLowerCase().includes(searchTerm) || office.BranchType.toLowerCase().includes(searchTerm));
-//                     postOfficesList.empty();
-
-//                     filteredOffices.forEach((office, index) => {
-//                         const listItem = `<li>${index + 1}. ${office.Name} - ${office.BranchType}</li>`;
-//                         postOfficesList.append(listItem);
-//                     });
-//                 });
-//             });
-//         });
-//     });
-
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
