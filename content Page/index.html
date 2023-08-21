@@ -19,24 +19,26 @@
   <body>
     <div class="location-details">
       <div class="ipAddress">
-        <p>IP Address: </p>
-        <p id="ipAddress"></p>
+        <p>IP Address :   <span id="ipAddress"></span></p>
+        
       </div>
       <div class="long-lat" id="longlat">
         <div class="lati">
-          <p>Lat: <span id="latitude"></span></p>
+          <p>Lat : <span id="latitude"></span></p>
 
-          <p> City: <span id="city"></span></p>
-
-          <p>Organisation: <span id="organisation"></span></p>
+          <p>Long : <span id="longitude"></span></p>
         </div>
 
         <div class="logi">
-          <p>Long: <span id="longitude"></span></p>
+          <p> City : <span id="city"></span></p>
 
-          <p>Region: <span id="region"></span></p>
+          <p>Region : <span id="region"></span></p>
+        </div>
 
-          <p>Host Name: <span id="hostName"></span></p>
+        <div class="hostOrg">
+          <p>Organisation : <span id="organisation"></span></p>
+          
+          <p>Host Name : <span id="hostName"></span></p>
         </div>
       </div>
     </div>
@@ -72,30 +74,9 @@
         </div>
       </div>
 
-      <div class="cardSection">
-        <div class="card1">
-          <p>Name:<span id="name"></span></p>
-
-          <p>Branch Type: <span id="branchType"></span></p>
-
-          <p>Delivery Status: <span id="deliveryStatus"></span></p>
-
-          <p>District: <span id="district"></span></p>
-
-          <p>Division:<span id="division"></span></p>
-        </div>
-
-        <div class="card2">
-          <p><span id="name">Name:</span></p>
-
-          <p><span id="branchType">Branch Type:</span></p>
-
-          <p><span id="deliveryStatus">Delivery Status: </span></p>
-
-          <p><span id="district"> District:</span></p>
-
-          <p><span id="division"> Division:</span></p>
-        </div>
+      <div class="cardSection" id="post-office-list">
+        
+      
       </div>
     </div>
     <script src="script.js"></script>
